@@ -22,7 +22,7 @@ export default function Hero() {
         </SplitBox>
         <SplitText
           delay={0}
-          className='text-3xl md:text-5xl mx-auto xxl:text-6xl font-semibold max-w-[300px] md:max-w-[400px]'
+          className='text-[32px] md:text-5xl mx-auto xxl:text-6xl font-semibold max-w-[250px] md:max-w-[400px]'
         >
           Crafting ideas into code.
         </SplitText>

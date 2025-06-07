@@ -63,7 +63,7 @@ export default function SplitText({
 
   return (
     <div
-      className='container'
+      className={className}
       ref={containerRef}
       style={{ visibility: 'hidden' }}
     >
