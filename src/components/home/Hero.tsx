@@ -14,7 +14,7 @@ export default function Hero() {
         />
       </div>
 
-      <div></div>
+      <div className='min-h-[50px] w-full'></div>
 
       <div className='text-center flex flex-col items-center gap-5'>
         <SplitBox duration={1}>
@@ -22,14 +22,14 @@ export default function Hero() {
         </SplitBox>
         <SplitText
           delay={0}
-          className='text-[32px] md:text-5xl mx-auto xxl:text-6xl font-semibold max-w-[250px] md:max-w-[400px]'
+          className='text-[32px] md:text-5xl mx-auto 2xl:text-6xl font-semibold max-w-[250px] md:max-w-[380px] 2xl:max-w-[400px]'
         >
           Crafting ideas into code.
         </SplitText>
 
         <SplitText
           delay={0.1}
-          className='md:text-lg opacity-70 mx-auto max-w-[270px] md:max-w-[300px]'
+          className='text-base opacity-70 mx-auto max-w-[270px] 2xl:max-w-[320px] 2xl:text-lg'
         >
           A passionate web developer building fast, responsive apps using modern
           JavaScript tools.

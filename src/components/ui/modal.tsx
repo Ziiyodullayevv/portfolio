@@ -43,9 +43,9 @@ export default function MyModal() {
           <div className='flex min-h-full items-center justify-center p-4'>
             <DialogPanel
               transition
-              className='w-full p-10 max-w-2xl gap-10 rounded-3xl bg-v5 backdrop-blur-2xl flex items-center duration-300 ease-out data-closed:transform-[scale(90%)] data-closed:opacity-0'
+              className='w-full p-10 max-w-lg lg:max-w-2xl gap-10 rounded-3xl bg-v5 backdrop-blur-2xl flex items-center duration-300 ease-out data-closed:transform-[scale(90%)] data-closed:opacity-0'
             >
-              <div className='w-[300px] shrink-0 -ml-[80px] rounded-3xl overflow-hidden h-[370px]'>
+              <div className='w-[300px] hidden lg:block shrink-0 -ml-[80px] rounded-3xl overflow-hidden h-[370px]'>
                 <img
                   className='h-full object-cover w-full'
                   src='https://www.unicajabanco.es/content/dam/unicaja/unicaja-corporacion/galeria-corporacion/noticias/campana-nomina-2018-unicajabanco-portada.jpg'
@@ -53,8 +53,10 @@ export default function MyModal() {
                 />
               </div>
               <div>
-                <h2 className='text-3xl font-semibold'>Akobir Ziyodullayev</h2>
-                <h4 className='text-2xl my-3 text-white/80'>
+                <h2 className='text-2xl sm:text-3xl font-semibold'>
+                  Akobir Ziyodullayev
+                </h2>
+                <h4 className='text-xl sm:text-2xl my-3 text-white/80'>
                   Frontend Engineer
                 </h4>
                 <p className='text-white/60'>
