@@ -23,7 +23,7 @@ export default function SectionTitle({
       : 'items-end text-right';
 
   return (
-    <div className={cn('flex flex-col gap-3', alignment)}>
+    <div className={cn('flex flex-col gap-1', alignment)}>
       {badge && (
         <SplitBox>
           <span className='bg-white/5 text-sm opacity-90 rounded-full px-3 py-1'>
@@ -31,14 +31,17 @@ export default function SectionTitle({
           </span>
         </SplitBox>
       )}
-      <SplitText as={'h2'} className='mx-auto text-4xl max-w-[350px]'>
+      <SplitText
+        as={'h2'}
+        className='mx-auto mt-2 text-[28px] lg:text-4xl max-w-[350px]'
+      >
         {title}
       </SplitText>
       {description && (
         <SplitText
           as={'p'}
           duration={1.4}
-          className='font-semibold mx-auto opacity-60 max-w-[400px]'
+          className='font-semibold leading-5.5 mx-auto opacity-60 max-w-[400px]'
         >
           {description}
         </SplitText>
