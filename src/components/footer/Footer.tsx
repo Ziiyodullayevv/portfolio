@@ -4,12 +4,12 @@ export default function Footer() {
   const now = new Date();
   const year = now.getFullYear();
   return (
-    <footer className='py-20 gradient-custom text-white'>
+    <footer className='py-10 sm:py-20 gradient-custom text-white'>
       <div className='container-base'>
         {/* footer top  */}
-        <div className='grid grid-cols-2 gap-5 items-center'>
-          <div className=''>
-            <h3 className=''>Stay in the loop</h3>
+        <div className='grid grid-cols-1 md:grid-cols-2 md:gap-5 items-center'>
+          <div>
+            <h3>Stay in the loop</h3>
             <p className='opacity-60'>
               Subscribe for the latest news & updates.
             </p>
@@ -30,10 +30,10 @@ export default function Footer() {
         <span className='w-full inline-block h-[0.5px] my-20 bg-white/10'></span>
 
         {/* footer bottom  */}
-        <div className='flex justify-between'>
+        <div className='flex flex-wrap gap-10 justify-between'>
           <div className='flex flex-col justify-end gap-2'>
             <Logo color='blue' />
-            <p className='text-sm text-black'>
+            <p className='text-sm font-semibold text-v3/80 md:text-v1/70'>
               ©{year} Akobir Dev. All rights reserved.
             </p>
           </div>
