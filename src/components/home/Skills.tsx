@@ -1,4 +1,5 @@
 import SectionTitle from '../title/SectionTitle';
+import SplitBox from '../ui/splitBox';
 import Line from './Line';
 
 import js from '@/assets/icons/js.avif';
@@ -24,7 +25,7 @@ export default function Skills() {
         />
         <Line techStack='Languages' />
 
-        <div className='flex gap-10 justify-center'>
+        <SplitBox className='flex flex-wrap gap-x-10 gap-y-5 justify-center'>
           <div className='flex text-lg font-semibold items-center gap-2'>
             <img className='w-5' src={js} alt='js logo' />
             JavaScript
@@ -34,11 +35,11 @@ export default function Skills() {
             <img className='w-5' src={ts} alt='js logo' />
             TypeScript
           </div>
-        </div>
+        </SplitBox>
 
         <Line techStack='Frameworks' />
 
-        <div className='flex gap-20 justify-center'>
+        <SplitBox className='flex gap-x-20 gap-y-5 flex-wrap justify-center'>
           <div className='flex text-lg font-semibold items-center gap-2'>
             <img className='w-5' src={react} alt='js logo' />
             React
@@ -53,11 +54,11 @@ export default function Skills() {
             <img className='w-5' src={react} alt='js logo' />
             React Native
           </div>
-        </div>
+        </SplitBox>
 
         <Line techStack='Styling' />
 
-        <div className='flex gap-10 justify-center'>
+        <SplitBox className='flex gap-x-10 gap-y-5 flex-wrap justify-center'>
           <div className='flex text-lg font-semibold items-center gap-2'>
             <img className='w-5' src={tailwind} alt='js logo' />
             Tailwindcss
@@ -72,11 +73,11 @@ export default function Skills() {
             <img className='w-5' src={motion} alt='motion logo' />
             Framer Motion
           </div>
-        </div>
+        </SplitBox>
 
         <Line techStack='State Management' />
 
-        <div className='flex gap-17 justify-center'>
+        <SplitBox className='flex gap-x-17 gap-y-5 flex-wrap justify-center'>
           <div className='flex text-lg font-semibold items-center gap-2'>
             <img className='w-10' src={zustand} alt='js logo' />
             Zustand
@@ -91,11 +92,11 @@ export default function Skills() {
             <img className='w-5' src={react} alt='motion logo' />
             Context API
           </div>
-        </div>
+        </SplitBox>
 
         <Line techStack='Tools' />
 
-        <div className='flex gap-30 justify-center'>
+        <SplitBox className='flex gap-x-30 gap-y-5 flex-wrap justify-center'>
           <div className='flex text-lg font-semibold items-center gap-2'>
             <img className='w-5' src={git} alt='js logo' />
             Git
@@ -110,7 +111,7 @@ export default function Skills() {
             <img className='w-5' src={figma} alt='motion logo' />
             Figma
           </div>
-        </div>
+        </SplitBox>
       </div>
     </section>
   );
