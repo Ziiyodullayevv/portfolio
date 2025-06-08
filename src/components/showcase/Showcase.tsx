@@ -1,4 +1,5 @@
 import Logo from '../logo/Logo';
+import ImageWithBlur from '../ui/imageWithBlur';
 import SplitBox from '../ui/splitBox';
 import SplitText from '../ui/splitText';
 import { motion } from 'framer-motion';
@@ -109,11 +110,17 @@ export default function Showcase() {
                 transition={{ type: 'spring', stiffness: 300 }}
                 className='card relative overflow-hidden border border-v3/5 h-60 bg-v7 rounded-md'
               >
-                <div className='h-[calc(100%-40px)] w-full'>
-                  <img
+                <div className='h-[calc(100%-40px)] relative w-full'>
+                  {/* <img
                     className='w-full h-full object-cover'
                     src={card.image}
                     alt={card.title}
+                  /> */}
+
+                  <ImageWithBlur
+                    className='w-full h-full object-cover'
+                    src={card.image}
+                    alt={card.title + 'image'}
                   />
                 </div>
                 <div className='h-10 absolute flex justify-between gap-4 items-center px-3 bottom-0 w-full bg-v7'>
