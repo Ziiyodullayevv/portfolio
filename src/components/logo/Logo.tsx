@@ -1,6 +1,8 @@
 import { Link } from 'react-router';
 import { cn } from '../../lib/utils';
 import ImageWithBlur from '../ui/imageWithBlur';
+import darkLogo from '@/assets/images/logo_dark.png';
+import lightLogo from '@/assets/images/logo_blue.png';
 
 type LogoProps = {
   variant?: 'small' | 'large';
@@ -11,7 +13,7 @@ export default function Logo({
   color = 'black',
 }: LogoProps) {
   const size = variant === 'large' ? 'w-[47px] h-[46px]' : 'w-[37px] h-[35px]';
-  const logoSrc = color === 'blue' ? '/logo_dark.png' : '/logo_blue.png';
+  const logoSrc = color === 'blue' ? darkLogo : lightLogo;
   return (
     <Link
       className={cn(

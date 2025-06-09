@@ -3,6 +3,7 @@ import ImageWithBlur from '../ui/imageWithBlur';
 import SplitBox from '../ui/splitBox';
 import SplitText from '../ui/splitText';
 import { motion } from 'framer-motion';
+import bg from '@/assets/images/bg.png';
 
 // 💡 Har bir kartaning title, image va rangini bitta massivda saqlaymiz
 const cards = [
@@ -71,13 +72,11 @@ export default function Showcase() {
   return (
     <section className='py-20'>
       <div className='absolute top-0 left-0 right-0 bottom-0 -z-10 opacity-15 overflow-hidden flex justify-center items-center [filter:hue-rotate(50deg)]'>
-        <SplitBox>
-          <img
-            className='w-full h-full object-cover'
-            src='/bg.png'
-            alt='background image'
-          />
-        </SplitBox>
+        <ImageWithBlur
+          className='w-full h-full object-cover'
+          src={bg}
+          alt='background image'
+        />
       </div>
       <div className='container-base'>
         <div className='flex mt-20 flex-col relative justify-center'>
@@ -111,12 +110,6 @@ export default function Showcase() {
                 className='card relative overflow-hidden border border-v3/5 h-60 bg-v7 rounded-md'
               >
                 <div className='h-[calc(100%-40px)] relative w-full'>
-                  {/* <img
-                    className='w-full h-full object-cover'
-                    src={card.image}
-                    alt={card.title}
-                  /> */}
-
                   <ImageWithBlur
                     className='w-full h-full object-cover'
                     src={card.image}

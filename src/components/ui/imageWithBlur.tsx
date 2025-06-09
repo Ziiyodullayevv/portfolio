@@ -26,7 +26,6 @@ const ImageWithBlur: React.FC<ImageWithBlurProps> = ({
           loaded ? 'opacity-100' : 'opacity-50'
         )}
       />
-      {!loaded && <div className='absolute z-10 bg-white backdrop-blur-lg' />}
     </>
   );
 };
