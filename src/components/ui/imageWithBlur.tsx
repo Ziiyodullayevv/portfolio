@@ -19,7 +19,6 @@ const ImageWithBlur: React.FC<ImageWithBlurProps> = ({
       <img
         src={src}
         alt={alt}
-        loading='lazy'
         onLoad={() => setLoaded(true)}
         className={clsx(
           className,
@@ -27,9 +26,7 @@ const ImageWithBlur: React.FC<ImageWithBlurProps> = ({
           loaded ? 'opacity-100' : 'opacity-50'
         )}
       />
-      {!loaded && (
-        <div className='absolute z-10 bg-transparent animate-pulse blur-lg' />
-      )}
+      {!loaded && <div className='absolute z-10 bg-white backdrop-blur-lg' />}
     </>
   );
 };

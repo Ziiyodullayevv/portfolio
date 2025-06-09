@@ -2,15 +2,22 @@ import { CheckCircle, Cpu, Flame, Search, Target } from 'lucide-react';
 import Logo from '../logo/Logo';
 import SplitText from '../ui/splitText';
 import SplitBox from '../ui/splitBox';
+import ImageWithBlur from '../ui/imageWithBlur';
+import bg from '@/assets/images/bg.png';
 
 export default function Hero() {
   return (
     <section className='min-h-screen relative overflow-hidden flex flex-col gap-10 justify-between items-center'>
-      <div className='absolute -top-[0px] left-0 right-0 bottom-0 -z-10 opacity-15 overflow-hidden flex justify-center items-center [filter:hue-rotate(50deg)]'>
-        <img
+      <div className='absolute top-0 left-0 right-0 bottom-0 -z-10 opacity-15 overflow-hidden flex justify-center items-center [filter:hue-rotate(50deg)]'>
+        {/* <img
           className='w-full h-full object-cover'
           src='/bg.png'
           alt='background image'
+        /> */}
+        <ImageWithBlur
+          className='w-full h-full object-cover'
+          src={bg}
+          alt='bg image'
         />
       </div>
 
