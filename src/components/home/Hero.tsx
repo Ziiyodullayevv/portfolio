@@ -8,9 +8,9 @@ import bg from '@/assets/images/bg.png';
 export default function Hero() {
   return (
     <section className='min-h-screen relative flex flex-col gap-10 justify-between items-center'>
-      <div className='absolute left-0 right-0 top-0 bottom-0 -z-10 opacity-15 [filter:hue-rotate(50deg)]'>
+      <div className='absolute left-0 right-0 -top-[300px] -z-10 opacity-15 [filter:hue-rotate(50deg)]'>
         <ImageWithBlur
-          className='w-full mx-auto h-full object-cover'
+          className='w-full mx-auto h-full'
           src={bg}
           alt='bg image'
         />
