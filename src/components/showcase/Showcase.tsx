@@ -71,11 +71,11 @@ const cards = [
 export default function Showcase() {
   return (
     <section className='py-20'>
-      <div className='absolute top-0 left-0 right-0 bottom-0 -z-10 opacity-15 overflow-hidden flex justify-center items-center [filter:hue-rotate(50deg)]'>
+      <div className='absolute left-0 right-0 -top-[300px] -z-10 opacity-15 [filter:hue-rotate(50deg)]'>
         <ImageWithBlur
-          className='w-full h-full object-cover'
+          className='w-full mx-auto h-full'
           src={bg}
-          alt='background image'
+          alt='bg image'
         />
       </div>
       <div className='container-base'>
