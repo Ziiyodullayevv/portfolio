@@ -8,6 +8,7 @@ import {
 import { FaLinkedinIn, FaInstagram } from 'react-icons/fa6';
 import { RiTelegram2Fill } from 'react-icons/ri';
 import { useState } from 'react';
+import Tilt from 'react-parallax-tilt';
 
 export default function MyModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,13 +46,15 @@ export default function MyModal() {
               transition
               className='w-full flex-col mt-15 lg:mt-0 lg:flex-row p-10 max-w-lg lg:max-w-2xl gap-10 rounded-3xl bg-v5 backdrop-blur-2xl flex items-center duration-300 ease-out data-closed:transform-[scale(90%)] data-closed:opacity-0'
             >
-              <div className='w-[200px] h-[200px] lg:w-[300px] shrink-0 lg:-ml-[80px] -mt-[100px] lg:mt-0 rounded-3xl overflow-hidden lg:h-[370px]'>
-                <img
-                  className='h-full object-cover w-full'
-                  src='https://www.unicajabanco.es/content/dam/unicaja/unicaja-corporacion/galeria-corporacion/noticias/campana-nomina-2018-unicajabanco-portada.jpg'
-                  alt='jpg'
-                />
-              </div>
+              <Tilt>
+                <div className='w-[200px] h-[200px] lg:w-[300px] shrink-0 lg:-ml-[80px] -mt-[100px] lg:mt-0 rounded-3xl overflow-hidden lg:h-[370px]'>
+                  <img
+                    className='h-full object-cover w-full'
+                    src='https://www.unicajabanco.es/content/dam/unicaja/unicaja-corporacion/galeria-corporacion/noticias/campana-nomina-2018-unicajabanco-portada.jpg'
+                    alt='jpg'
+                  />
+                </div>
+              </Tilt>
               <div>
                 <h2 className='text-2xl sm:text-3xl font-semibold'>
                   Akobir Ziyodullayev
