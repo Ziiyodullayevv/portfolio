@@ -9,13 +9,11 @@ export default function Hero() {
   return (
     <section className='min-h-screen relative flex flex-col gap-10 justify-between items-center'>
       <div className='absolute left-0 right-0 -top-[300px] bottom-0 -z-10 opacity-15 [filter:hue-rotate(50deg)]'>
-        <SplitBox>
-          <ImageWithBlur
-            className='w-[100%] mx-auto h-full object-cover'
-            src={bg}
-            alt='bg image'
-          />
-        </SplitBox>
+        <ImageWithBlur
+          className='w-[100%] mx-auto h-full object-cover'
+          src={bg}
+          alt='bg image'
+        />
       </div>
 
       <div className='min-h-[50px] w-full'></div>
