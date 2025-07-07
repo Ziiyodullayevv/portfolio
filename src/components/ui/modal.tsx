@@ -5,10 +5,12 @@ import {
   DialogPanel,
   Transition,
 } from '@headlessui/react';
-import { FaLinkedinIn, FaInstagram } from 'react-icons/fa6';
+import { FaLinkedinIn } from 'react-icons/fa6';
 import { RiTelegram2Fill } from 'react-icons/ri';
 import { useState } from 'react';
 import Tilt from 'react-parallax-tilt';
+import { Link } from 'react-router';
+import { SiLeetcode } from 'react-icons/si';
 
 export default function MyModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,10 +49,10 @@ export default function MyModal() {
               className='w-full flex-col mt-15 lg:mt-0 lg:flex-row p-10 max-w-lg lg:max-w-2xl gap-10 rounded-3xl bg-v5 backdrop-blur-2xl flex items-center duration-300 ease-out data-closed:transform-[scale(90%)] data-closed:opacity-0'
             >
               <Tilt>
-                <div className='w-[200px] h-[200px] lg:w-[300px] shrink-0 lg:-ml-[80px] -mt-[100px] lg:mt-0 rounded-3xl overflow-hidden lg:h-[370px]'>
+                <div className='w-[200px] bg-gradient-to-b from-v2 to-v6 h-[200px] lg:w-[300px] shrink-0 lg:-ml-[80px] -mt-[100px] lg:mt-0 rounded-3xl overflow-hidden lg:h-[370px]'>
                   <img
                     className='h-full object-cover w-full'
-                    src='https://www.unicajabanco.es/content/dam/unicaja/unicaja-corporacion/galeria-corporacion/noticias/campana-nomina-2018-unicajabanco-portada.jpg'
+                    src='https://png.pngtree.com/png-clipart/20240111/original/pngtree-3d-character-cartoon-programmer-computer-three-dimensional-cute-profession-png-image_14082104.png'
                     alt='jpg'
                   />
                 </div>
@@ -69,17 +71,28 @@ export default function MyModal() {
                 </p>
 
                 <div className='mt-5 flex items-center gap-3'>
-                  <div className='w-11 group hover:outline-2 outline-offset-3 outline-v2 cursor-pointer h-11 bg-white/10 rounded-full flex justify-center items-center'>
+                  <Link
+                    to={
+                      'https://uz.linkedin.com/in/akobir-ziyodullayev-9a26a2281'
+                    }
+                    className='w-11 group hover:outline-2 outline-offset-3 outline-v2 cursor-pointer h-11 bg-white/10 rounded-full flex justify-center items-center'
+                  >
                     <FaLinkedinIn className='text-xl' />
-                  </div>
+                  </Link>
 
-                  <div className='w-11 group hover:outline-2 outline-offset-3 outline-v2 cursor-pointer h-11 bg-white/10 rounded-full flex justify-center items-center'>
-                    <FaInstagram className='text-xl' />
-                  </div>
+                  <Link
+                    to={'https://leetcode.com/u/akobirjs/'}
+                    className='w-11 group hover:outline-2 outline-offset-3 outline-v2 cursor-pointer h-11 bg-white/10 rounded-full flex justify-center items-center'
+                  >
+                    <SiLeetcode className='text-xl' />
+                  </Link>
 
-                  <div className='w-11 group hover:outline-2 outline-offset-3 outline-v2 cursor-pointer h-11 bg-white/10 rounded-full flex justify-center items-center'>
+                  <Link
+                    to={'https://t.me/akobirjs'}
+                    className='w-11 group hover:outline-2 outline-offset-3 outline-v2 cursor-pointer h-11 bg-white/10 rounded-full flex justify-center items-center'
+                  >
                     <RiTelegram2Fill className='text-xl' />
-                  </div>
+                  </Link>
                 </div>
               </div>
             </DialogPanel>

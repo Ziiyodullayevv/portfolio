@@ -1,9 +1,17 @@
-import { CheckCircle, Cpu, Flame, Search, Target } from 'lucide-react';
+import {
+  CheckCircle,
+  Cpu,
+  Flame,
+  Search,
+  Target,
+  TrendingUp,
+} from 'lucide-react';
 import Logo from '../logo/Logo';
 import SplitText from '../ui/splitText';
 import SplitBox from '../ui/splitBox';
 import ImageWithBlur from '../ui/imageWithBlur';
 import bg from '@/assets/images/bg.png';
+import { Link } from 'react-router';
 
 export default function Hero() {
   return (
@@ -39,15 +47,22 @@ export default function Hero() {
 
         <div className='flex gap-3'>
           <SplitBox delay={0.4} y={10} duration={1}>
-            <button className='h-[35px] backdrop-blur-sm cursor-pointer bg-white/10 rounded-[8px] flex items-center px-3'>
+            <Link
+              to={'/showcase'}
+              className='h-[35px] backdrop-blur-sm cursor-pointer bg-white/10 rounded-[8px] flex items-center px-3'
+            >
               Explore Projects
-            </button>
+            </Link>
           </SplitBox>
 
           <SplitBox delay={0.4} y={10} duration={1}>
-            <button className='h-[35px] cursor-pointer bg-blue-600 px-3 rounded-[8px]'>
+            <a
+              href='/cv.pdf'
+              download
+              className='h-[35px] flex items-center cursor-pointer bg-blue-600 px-3 rounded-[8px]'
+            >
               Download CV
-            </button>
+            </a>
           </SplitBox>
         </div>
       </div>
@@ -111,9 +126,9 @@ export default function Hero() {
           <div>
             <SplitBox delay={1} y={10}>
               <div className='flex flex-col lg:col-span-2 items-center gap-2'>
-                <Search className='size-4.5' />
+                <TrendingUp className='size-4.5' />
                 <p className='text-xs sm:text-sm max-w-[120px] opacity-70'>
-                  SEO-conscious design
+                  Focused on growth & impact
                 </p>
               </div>
             </SplitBox>

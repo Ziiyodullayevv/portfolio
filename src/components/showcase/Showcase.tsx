@@ -4,67 +4,44 @@ import SplitBox from '../ui/splitBox';
 import SplitText from '../ui/splitText';
 import { motion } from 'framer-motion';
 import bg from '@/assets/images/bg.png';
+import { Link } from 'react-router';
 
 // 💡 Har bir kartaning title, image va rangini bitta massivda saqlaymiz
+
 const cards = [
   {
-    title: 'Enter Animation',
+    title: '1good',
     image:
-      'https://sun9-50.userapi.com/impf/c840621/v840621666/40158/IB9IEyKJ3mg.jpg?size=604x403&quality=96&sign=5758dc7f8afc452981ec408b4c86c432&type=album',
-    color: 'bg-red-500',
-  },
-  {
-    title: 'Dashboard UI',
-    image:
-      'https://image.winudf.com/v2/image1/cmVkcGFuZGF3YWxscGFwZXIubXVhbmdyaXRfc2NyZWVuXzNfMTU2NzAxOTMwOF8wMDg/screen-3.jpg?fakeurl=1&type=.jpg',
-    color: 'bg-green-500',
-  },
-  {
-    title: 'Portfolio Design',
-    image:
-      'https://image.winudf.com/v2/image1/Y29tLmFwcDNkd2FsbHBhcGVyaGQucmFjY29vbndhbGxwYXBlcl9zY3JlZW5fN18xNTY3MDI2NTU5XzAzOA/screen-7.jpg?fakeurl=1&type=.jpg',
+      'https://media.licdn.com/dms/image/v2/D4D12AQHNOxYDZoawxg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693327622536?e=2147483647&v=beta&t=NVTZm1JKy7VsLJa5QJbGRcUAIZuxIxLulx6HBzBE94w',
+    link: 'https://www.1good.uz/',
     color: 'bg-blue-500',
   },
   {
-    title: 'E-Commerce App',
+    title: 'Bulut Paper',
+    image: 'https://www.bulutpaper.uz/6.jpg',
+    link: 'https://www.bulutpaper.uz/',
+    color: 'bg-green-500',
+  },
+  {
+    title: 'Vital',
     image:
-      'https://ekaterinburg.oboitd.ru/images/goods/big/20221003104445_Lev_3276-M.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH9iHttWKurONYEnraGnsBG6Wk_W3RN8F9PQ&s',
+    link: 'https://vital.uz/',
     color: 'bg-yellow-500',
   },
   {
-    title: 'Blog Page',
+    title: 'Iecg Certificate',
     image:
-      'https://avatars.mds.yandex.net/i?id=74b47983ff309f334bbefaf5882e6348c4db743b-9149651-images-thumbs&n=13',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHIQn2ETre8hq3rNQOatm6717ZwkMgtiE_CQ&s',
+    link: 'https://iecgcertificate.uz/',
     color: 'bg-purple-500',
   },
   {
-    title: 'Task Manager',
-    image: 'https://wallpaperaccess.com/full/3979387.jpg',
+    title: 'Dreamtech',
+    image:
+      'https://media.istockphoto.com/id/1830042746/photo/document-management-system-dms-with-arrange-folder-and-files-icons-man-setup-storage-backup.jpg?s=612x612&w=0&k=20&c=t8oAAO16j6fMhleAYJEXm5pSXFIDZrEG6sYJkv_Sdos=',
+    link: 'https://www.dreamtech.uz/',
     color: 'bg-pink-500',
-  },
-  {
-    title: 'Mobile UI',
-    image:
-      'https://www.tapeciarnia.pl/tapety/normalne/94980_zebra_mlode_trawa.jpg',
-    color: 'bg-orange-500',
-  },
-  {
-    title: 'Landing Page',
-    image:
-      'https://i.pinimg.com/736x/51/3d/b2/513db2aa51e8a5043469c185f38f8f64.jpg',
-    color: 'bg-emerald-500',
-  },
-  {
-    title: 'Admin Panel',
-    image:
-      'https://cdn.pixabay.com/photo/2020/07/08/21/32/tucan-5385244_1280.jpg',
-    color: 'bg-teal-500',
-  },
-  {
-    title: 'Chat App',
-    image:
-      'https://image.winudf.com/v2/image/Y29tLmFydHVyLkxlb3BhcmRXYWxscGFwZXJzX3NjcmVlbnNob3RzXzNfNzA4NTk0ZjA/screen-3.jpg?fakeurl=1&type=.jpg',
-    color: 'bg-cyan-500',
   },
 ];
 
@@ -103,25 +80,29 @@ export default function Showcase() {
           {/* 💡 Cards map */}
           <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-5 flex-wrap'>
             {cards.map((card, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className='card relative overflow-hidden border border-v3/5 h-60 bg-v7 rounded-md'
-              >
-                <div className='h-[calc(100%-40px)] relative w-full'>
-                  <ImageWithBlur
-                    className='w-full h-full object-cover'
-                    src={card.image}
-                    alt={card.title + 'image'}
-                  />
-                </div>
-                <div className='h-10 absolute flex justify-between gap-4 items-center px-3 bottom-0 w-full bg-v7'>
-                  <h4>{card.title}</h4>
-                  {/* Rangni shu yerda qo'llaymiz */}
-                  <span className={`w-2 h-2 rounded-full ${card.color}`}></span>
-                </div>
-              </motion.div>
+              <Link to={card.link}>
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  className='card relative overflow-hidden border border-v3/5 h-60 bg-v7 rounded-md'
+                >
+                  <div className='h-[calc(100%-40px)] bg-v6 relative w-full'>
+                    <ImageWithBlur
+                      className='w-full h-full object-cover'
+                      src={card.image}
+                      alt={card.title + 'image'}
+                    />
+                  </div>
+                  <div className='h-10 absolute flex justify-between gap-4 items-center px-3 bottom-0 w-full bg-v7'>
+                    <h4>{card.title}</h4>
+                    {/* Rangni shu yerda qo'llaymiz */}
+                    <span
+                      className={`w-2 h-2 rounded-full ${card.color}`}
+                    ></span>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
