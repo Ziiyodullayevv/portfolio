@@ -16,7 +16,7 @@ import { Link } from 'react-router';
 export default function Hero() {
   return (
     <section className='min-h-screen overflow-hidden relative flex flex-col gap-10 justify-between items-center'>
-      <div className='absolute inset-0 -z-10 opacity-20 [filter:hue-rotate(50deg)]'>
+      <div className='absolute inset-y-5 sm:inset-0 -z-10 opacity-15 [filter:hue-rotate(50deg)]'>
         <ImageWithBlur
           className='w-full h-full object-cover'
           src={bg}

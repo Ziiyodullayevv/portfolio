@@ -48,9 +48,9 @@ const cards = [
 export default function Showcase() {
   return (
     <section className='py-20'>
-      <div className='absolute left-0 right-0 -top-[300px] -z-10 opacity-15 [filter:hue-rotate(50deg)]'>
+      <div className='absolute inset-0 -z-10 opacity-15 [filter:hue-rotate(50deg)]'>
         <ImageWithBlur
-          className='w-full mx-auto h-full'
+          className='w-full object-cover h-full'
           src={bg}
           alt='bg image'
         />
