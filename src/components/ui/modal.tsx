@@ -52,7 +52,7 @@ export default function MyModal() {
                 <div className='w-[200px] bg-gradient-to-b from-v2 to-v6 h-[200px] lg:w-[300px] shrink-0 lg:-ml-[80px] -mt-[100px] lg:mt-0 rounded-3xl overflow-hidden lg:h-[370px]'>
                   <img
                     className='h-full object-cover w-full'
-                    src='https://png.pngtree.com/png-clipart/20240111/original/pngtree-3d-character-cartoon-programmer-computer-three-dimensional-cute-profession-png-image_14082104.png'
+                    src='https://img.freepik.com/premium-photo/back-view-software-developer-coding-program-engineering-prompt-aig_31965-467611.jpg'
                     alt='jpg'
                   />
                 </div>

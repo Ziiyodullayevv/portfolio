@@ -11,15 +11,16 @@ export default function CreativeDeveloper() {
           description='I build unique and visually engaging web experiences, optimized for performance, accessibility, and impact.'
         />
         <div className='grid grid-cols-1 lg:grid-cols-12 mt-10 gap-3'>
-          <SplitBox className='bg-white/5 grid-cols-1 lg:col-span-8 relative rounded-3xl overflow-hidden h-90 sm:h-100'>
+          <SplitBox className='bg-white/5 grid-cols-1 lg:col-span-8 relative rounded-3xl overflow-hidden h-[360px] sm:h-[400px]'>
             <video
-              className='h-full w-full object-cover pointer-events-none'
+              className='w-full h-full object-cover pointer-events-none will-change-transform'
               autoPlay
               loop
               muted
               playsInline
+              webkit-playsinline
               src='/project.mp4'
-            ></video>
+            />
 
             <div className='absolute card-gradient p-8 flex flex-col justify-end left-0 right-0 bottom-0 bg-blue-500/10'>
               <h3>Real Projects</h3>
@@ -36,7 +37,7 @@ export default function CreativeDeveloper() {
               src='https://images.pexels.com/photos/9667639/pexels-photo-9667639.jpeg?auto=compress&cs=tinysrgb&w=600'
               alt=''
             />
-            <div className='absolute card-gradient p-8 flex flex-col justify-end left-0 right-0 bottom-0 top-[50] bg-blue-500/10'>
+            <div className='absolute card-gradient p-8 flex flex-col justify-end left-0 right-0 bottom-0 bg-blue-500/10'>
               <h3>Clean Code Tidy</h3>
               <p className='max-w-[300px] opacity-50'>
                 I write clean, maintainable, and scalable JavaScript/React code.
