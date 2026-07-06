@@ -6,6 +6,7 @@ interface SlideUpProps {
   duration?: number;
   className?: string;
   y?: number;
+  animateOnMount?: boolean;
 }
 
 export default function SlideUp({
@@ -14,12 +15,17 @@ export default function SlideUp({
   duration = 0.8,
   y = 20,
   className = '',
+  animateOnMount = false,
 }: SlideUpProps) {
+  const hidden = { opacity: 0, y };
+  const visible = { opacity: 1, y: 0 };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      initial={hidden}
+      animate={animateOnMount ? visible : undefined}
+      whileInView={animateOnMount ? undefined : visible}
+      viewport={animateOnMount ? undefined : { once: true, amount: 0.2 }}
       transition={{
         duration,
         delay,

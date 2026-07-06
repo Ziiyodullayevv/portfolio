@@ -1,7 +1,7 @@
 import { animate } from 'motion';
 import { splitText } from 'motion-plus';
 import React, { useEffect, useRef } from 'react';
-import { useInView } from 'framer-motion'; // scrollni kuzatish uchun
+import { useInView, useReducedMotion } from 'framer-motion';
 
 interface SplitTextProps {
   children: React.ReactNode;
@@ -11,6 +11,7 @@ interface SplitTextProps {
   stag?: number;
   delay?: number;
   once?: boolean;
+  animateOnMount?: boolean;
 }
 
 export default function SplitText({
@@ -21,32 +22,69 @@ export default function SplitText({
   stag = 0.05,
   delay = 0,
   once = true,
+  animateOnMount = false,
 }: SplitTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(containerRef, {
     once,
-    amount: 0.5, // 50% ko‘ringanida ishga tushadi
+    amount: 0.35,
   });
+  const shouldAnimate = animateOnMount || isInView;
 
   useEffect(() => {
+    if (!shouldAnimate) return;
+
+    const container = containerRef.current;
+    const textElement = textRef.current;
+
+    if (!container || !textElement) return;
+
+    let isCancelled = false;
+    let controls: ReturnType<typeof animate> | undefined;
+    let fallbackTimer: number | undefined;
+    const originalText = textElement.textContent ?? '';
+
+    const showText = () => {
+      container.style.visibility = 'visible';
+    };
+
     const run = async () => {
-      if (!isInView) return; // faqat ko‘ringanda ishga tushadi
+      try {
+        await document.fonts?.ready;
+      } catch {
+        // Font loading is only needed for accurate line splitting.
+      }
 
-      await document.fonts.ready;
+      if (isCancelled) return;
 
-      if (!containerRef.current) return;
+      showText();
 
-      containerRef.current.style.visibility = 'visible';
+      if (!originalText.trim() || shouldReduceMotion) {
+        return;
+      }
 
-      const heading = containerRef.current.querySelector(
-        typeof Tag === 'string' ? Tag : 'h1'
-      ) as HTMLElement;
+      textElement.textContent = originalText;
 
-      if (!heading) return;
+      const { words } = splitText(textElement);
 
-      const { words } = splitText(heading);
+      words.forEach((word) => {
+        word.style.opacity = '0';
+        word.style.transform = 'translateY(10px)';
+        word.style.filter = 'blur(6px)';
+      });
 
-      animate(
+      const finish = () => {
+        words.forEach((word) => {
+          word.style.opacity = '1';
+          word.style.transform = 'none';
+          word.style.filter = 'blur(0px)';
+          word.style.marginRight = '';
+        });
+      };
+
+      controls = animate(
         words,
         { opacity: [0, 1], y: [10, 0], filter: ['blur(6px)', 'blur(0px)'] },
         {
@@ -56,10 +94,25 @@ export default function SplitText({
           delay: (index) => delay + index * stag,
         }
       );
+
+      const lastWordDelay = Math.max(words.length - 1, 0) * stag;
+      fallbackTimer = window.setTimeout(
+        finish,
+        (delay + lastWordDelay + duration + 0.3) * 1000
+      );
     };
 
     run();
-  }, [isInView, Tag, duration, stag, delay]);
+
+    return () => {
+      isCancelled = true;
+      if (fallbackTimer) window.clearTimeout(fallbackTimer);
+      controls?.stop();
+      textElement.textContent = originalText;
+      textElement.removeAttribute('aria-label');
+      showText();
+    };
+  }, [shouldAnimate, once, duration, stag, delay, shouldReduceMotion]);
 
   return (
     <div
@@ -67,7 +120,7 @@ export default function SplitText({
       ref={containerRef}
       style={{ visibility: 'hidden' }}
     >
-      {React.createElement(Tag, { className }, children)}
+      {React.createElement(Tag, { ref: textRef, className }, children)}
       <Stylesheet />
     </div>
   );

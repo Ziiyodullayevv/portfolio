@@ -27,18 +27,21 @@ export default function Hero() {
       <div className='min-h-[50px] w-full'></div>
 
       <div className='text-center flex flex-col items-center gap-5'>
-        <SplitBox duration={1}>
+        <SplitBox duration={1} animateOnMount>
           <Logo variant='large' color='blue' />
         </SplitBox>
         <SplitText
           delay={0}
+          animateOnMount
           className='text-[32px] md:text-5xl mx-auto 2xl:text-6xl font-semibold max-w-[250px] leading-10 md:leading-14 md:max-w-[380px] 2xl:max-w-[400px]'
         >
           Crafting ideas into code.
         </SplitText>
 
         <SplitText
+          as='p'
           delay={0.1}
+          animateOnMount
           className='text-base opacity-70 mx-auto max-w-[270px] 2xl:max-w-[320px] 2xl:text-lg'
         >
           A passionate web developer building fast, responsive apps using modern
@@ -46,7 +49,7 @@ export default function Hero() {
         </SplitText>
 
         <div className='flex gap-3'>
-          <SplitBox delay={0.4} y={10} duration={1}>
+          <SplitBox delay={0.4} y={10} duration={1} animateOnMount>
             <Link
               to={'/showcase'}
               className='h-[35px] backdrop-blur-sm cursor-pointer bg-white/10 rounded-[8px] flex items-center px-3'
@@ -55,9 +58,9 @@ export default function Hero() {
             </Link>
           </SplitBox>
 
-          <SplitBox delay={0.4} y={10} duration={1}>
+          <SplitBox delay={0.4} y={10} duration={1} animateOnMount>
             <a
-              href='/cv.pdf'
+              href='/my-cv.pdf'
               download
               className='h-[35px] flex items-center cursor-pointer bg-blue-600 px-3 rounded-[8px]'
             >
@@ -69,7 +72,7 @@ export default function Hero() {
       <div className='container-base'>
         <div className='pb-10 grid grid-cols-3 lg:grid-cols-6 text-center gap-3 justify-center'>
           <div>
-            <SplitBox delay={0.6} y={10}>
+            <SplitBox delay={0.6} y={10} animateOnMount>
               <div className='flex flex-col items-center gap-2'>
                 <Flame className='size-4.5' />
                 <p className='text-xs sm:text-sm max-w-[120px] opacity-70'>
@@ -80,7 +83,7 @@ export default function Hero() {
           </div>
 
           <div>
-            <SplitBox delay={0.7} y={10}>
+            <SplitBox delay={0.7} y={10} animateOnMount>
               <div className='flex flex-col col-span-2 items-center gap-2'>
                 <Target className='size-4.5' />
                 <p className='text-xs sm:text-sm max-w-[120px] opacity-70'>
@@ -91,7 +94,7 @@ export default function Hero() {
           </div>
 
           <div>
-            <SplitBox delay={0.8} y={10}>
+            <SplitBox delay={0.8} y={10} animateOnMount>
               <div className='flex flex-col col-span-2 items-center gap-2'>
                 <CheckCircle className='size-4.5' />
                 <p className='text-xs sm:text-sm max-w-[120px] opacity-70'>
@@ -102,7 +105,7 @@ export default function Hero() {
           </div>
 
           <div>
-            <SplitBox delay={0.9} y={10}>
+            <SplitBox delay={0.9} y={10} animateOnMount>
               <div className='flex flex-col col-span-2 items-center gap-2'>
                 <Cpu className='size-4.5' />
                 <p className='text-xs sm:text-sm max-w-[100px] opacity-70'>
@@ -113,7 +116,7 @@ export default function Hero() {
           </div>
 
           <div>
-            <SplitBox delay={1} y={10}>
+            <SplitBox delay={1} y={10} animateOnMount>
               <div className='flex flex-col lg:col-span-2 items-center gap-2'>
                 <Search className='size-4.5' />
                 <p className='text-xs sm:text-sm max-w-[120px] opacity-70'>
@@ -124,7 +127,7 @@ export default function Hero() {
           </div>
 
           <div>
-            <SplitBox delay={1} y={10}>
+            <SplitBox delay={1} y={10} animateOnMount>
               <div className='flex flex-col lg:col-span-2 items-center gap-2'>
                 <TrendingUp className='size-4.5' />
                 <p className='text-xs sm:text-sm max-w-[120px] opacity-70'>
