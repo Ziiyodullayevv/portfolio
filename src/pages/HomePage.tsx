@@ -9,7 +9,93 @@ import {
   MapPin,
   Send,
 } from 'lucide-react';
+import {
+  motion,
+  useReducedMotion,
+  type Variants,
+} from 'motion/react';
+import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
+
+const easeOut = [0.22, 1, 0.36, 1] as const;
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 34 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.78, ease: easeOut },
+  },
+};
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.7, ease: easeOut },
+  },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.09, delayChildren: 0.06 },
+  },
+};
+
+const heroStagger: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.14 },
+  },
+};
+
+const rowReveal: Variants = {
+  hidden: { opacity: 0, x: -22 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.62, ease: easeOut },
+  },
+};
+
+const popIn: Variants = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: easeOut },
+  },
+};
+
+const noMotion: Variants = {
+  hidden: { opacity: 1 },
+  visible: { opacity: 1 },
+};
+
+const revealViewport = { once: true, amount: 0.18 } as const;
+
+function Reveal({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className={className}
+      initial={reduceMotion ? false : 'hidden'}
+      whileInView='visible'
+      viewport={revealViewport}
+      variants={reduceMotion ? noMotion : fadeUp}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const projects = [
   {
@@ -177,15 +263,24 @@ const socials = [
 ];
 
 function SectionLabel({ number, children }: { number: string; children: string }) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <div className='section-label'>
+    <motion.div
+      className='section-label'
+      initial={reduceMotion ? false : { opacity: 0, x: -18 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.8 }}
+      transition={{ duration: 0.55, ease: easeOut }}
+    >
       <span>({number})</span>
       <span>{children}</span>
-    </div>
+    </motion.div>
   );
 }
 
 export default function HomePage() {
+  const reduceMotion = useReducedMotion();
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isDownloadingCv, setIsDownloadingCv] = useState(false);
@@ -236,19 +331,30 @@ export default function HomePage() {
 
   return (
     <div id='top' className='portfolio-page'>
-      <aside className='scroll-indicator' aria-hidden='true'>
+      <motion.aside
+        className='scroll-indicator'
+        aria-hidden='true'
+        initial={reduceMotion ? false : { opacity: 0, x: 15 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.65, delay: 0.8, ease: easeOut }}
+      >
         <span>{Math.round(scrollProgress).toString().padStart(2, '0')}%</span>
         <div>
           <i style={{ height: `${scrollProgress}%` }} />
         </div>
         <small>Scroll</small>
-      </aside>
+      </motion.aside>
 
-      <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
+      <motion.header
+        className={`site-header${isScrolled ? ' is-scrolled' : ''}`}
+        initial={reduceMotion ? false : { opacity: 0, y: -90 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: easeOut }}
+      >
         <a className='wordmark' href='#top' aria-label='Home'>
           akobir<span>.dev</span>
         </a>
-        <nav aria-label='Asosiy navigatsiya'>
+        <nav aria-label='Primary navigation'>
           <a href='#about'>01 About</a>
           <a href='#toolkit'>02 Toolkit</a>
           <a href='#work'>03 Work</a>
@@ -260,59 +366,79 @@ export default function HomePage() {
         <a className='header-cta' href='https://t.me/akobirjs' target='_blank' rel='noreferrer'>
           <span>Let’s talk</span> <ArrowUpRight size={15} />
         </a>
-      </header>
+      </motion.header>
 
       <main>
-        <section className='hero-section'>
-          <div className='hero-status'>
-            <span />
-            Open to new opportunities
-          </div>
-          <h1>
-            Frontend developer
-            <br />
-            building <em>fast, thoughtful</em>
-            <br />
-            digital products.
-          </h1>
-          <div className='hero-bottom'>
-            <p>
-              I’m <strong>Akobir Ziyodullayev</strong> — a frontend developer
-              based in Tashkent. I turn ideas into fast, responsive, and
-              enjoyable digital products.
-            </p>
-            <div className='hero-actions'>
-              <a className='button button-primary' href='#work'>
-                <span>View projects</span> <ArrowDown size={17} />
-              </a>
-              <button
-                className='button button-ghost'
-                type='button'
-                onClick={handleCvDownload}
-                disabled={isDownloadingCv}
-                aria-busy={isDownloadingCv}
-              >
-                <span>
+        <motion.section
+          className='hero-section'
+          initial={reduceMotion ? false : 'hidden'}
+          animate='visible'
+          variants={reduceMotion ? noMotion : heroStagger}
+        >
+          <div className='hero-container'>
+            <motion.div className='hero-status' variants={reduceMotion ? noMotion : fadeUp}>
+              <span />
+              Open to new opportunities
+            </motion.div>
+            <motion.h1 variants={reduceMotion ? noMotion : fadeUp}>
+              Frontend developer
+              <br />
+              building <em>fast, thoughtful</em>
+              <br />
+              digital products.
+            </motion.h1>
+            <motion.div className='hero-bottom' variants={reduceMotion ? noMotion : fadeUp}>
+              <motion.p variants={reduceMotion ? noMotion : fadeIn}>
+                I’m <strong>Akobir Ziyodullayev</strong> — a frontend developer
+                based in Tashkent. I turn ideas into fast, responsive, and
+                enjoyable digital products.
+              </motion.p>
+              <motion.div className='hero-actions' variants={reduceMotion ? noMotion : stagger}>
+                <motion.a
+                  className='button button-primary'
+                  href='#work'
+                  variants={reduceMotion ? noMotion : popIn}
+                  whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+                >
+                  <span>View projects</span> <ArrowDown size={17} />
+                </motion.a>
+                <motion.button
+                  className='button button-ghost'
+                  type='button'
+                  onClick={handleCvDownload}
+                  disabled={isDownloadingCv}
+                  aria-busy={isDownloadingCv}
+                  variants={reduceMotion ? noMotion : popIn}
+                  whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+                >
+                  <span>
+                    {isDownloadingCv
+                      ? 'Preparing CV…'
+                      : cvDownloadFailed
+                        ? 'Try again'
+                        : 'Download CV'}
+                  </span>
                   {isDownloadingCv
-                    ? 'Preparing CV…'
-                    : cvDownloadFailed
-                      ? 'Try again'
-                      : 'Download CV'}
-                </span>
-                {isDownloadingCv
-                  ? <LoaderCircle className='button-spinner' size={17} />
-                  : <Download size={17} />}
-              </button>
-            </div>
+                    ? <LoaderCircle className='button-spinner' size={17} />
+                    : <Download size={17} />}
+                </motion.button>
+              </motion.div>
+            </motion.div>
+            <motion.div className='hero-meta' variants={reduceMotion ? noMotion : fadeIn}>
+              <span><MapPin size={15} /> Tashkent, Uzbekistan</span>
+              <span>GMT +5</span>
+              <span>Web & mobile development</span>
+            </motion.div>
           </div>
-          <div className='hero-meta'>
-            <span><MapPin size={15} /> Tashkent, Uzbekistan</span>
-            <span>GMT +5</span>
-            <span>Web & mobile development</span>
-          </div>
-        </section>
+        </motion.section>
 
-        <div className='ticker' aria-hidden='true'>
+        <motion.div
+          className='ticker'
+          aria-hidden='true'
+          initial={reduceMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.85 }}
+        >
           <div>
             React <span>✦</span> Next.js <span>✦</span> TypeScript <span>✦</span>
             React Native <span>✦</span> Tailwind CSS <span>✦</span> Redux
@@ -320,59 +446,78 @@ export default function HomePage() {
             React <span>✦</span> Next.js <span>✦</span> TypeScript <span>✦</span>
             React Native <span>✦</span>
           </div>
-        </div>
+        </motion.div>
 
         <section id='about' className='content-section about-section'>
           <SectionLabel number='01'>About</SectionLabel>
           <div className='section-content about-grid'>
-            <div>
-              <p className='statement'>
+            <motion.div
+              initial={reduceMotion ? false : 'hidden'}
+              whileInView='visible'
+              viewport={revealViewport}
+              variants={reduceMotion ? noMotion : stagger}
+            >
+              <motion.p className='statement' variants={reduceMotion ? noMotion : fadeUp}>
                 I build digital products where business goals, user needs, and
                 <em> thoughtful details</em> work together as one clear
                 experience.
-              </p>
-              <div className='about-copy'>
-                <p>
+              </motion.p>
+              <motion.div className='about-copy' variants={reduceMotion ? noMotion : stagger}>
+                <motion.p variants={reduceMotion ? noMotion : fadeUp}>
                   My core stack is React, Next.js, and TypeScript. I translate
                   product ideas and designs into clean, maintainable interfaces,
                   connect them to real APIs, and make sure the experience stays
                   consistent across every screen size.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p variants={reduceMotion ? noMotion : fadeUp}>
                   I have delivered products across logistics, education,
                   automotive, e-commerce, and corporate sectors. Alongside
                   development, I mentor future frontend engineers at Mars IT,
                   which has strengthened how I communicate, collaborate, and
                   explain complex technical ideas.
-                </p>
-              </div>
-              <dl className='stats'>
-                <div><dt>Projects</dt><dd>10+</dd></div>
-                <div><dt>Featured</dt><dd>08</dd></div>
-                <div><dt>Based</dt><dd>Tashkent</dd></div>
-              </dl>
-            </div>
+                </motion.p>
+              </motion.div>
+              <motion.dl className='stats' variants={reduceMotion ? noMotion : stagger}>
+                {[
+                  ['Projects', '10+'],
+                  ['Featured', '08'],
+                  ['Based', 'Tashkent'],
+                ].map(([label, value]) => (
+                  <motion.div key={label} variants={reduceMotion ? noMotion : popIn}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </motion.div>
+                ))}
+              </motion.dl>
+            </motion.div>
           </div>
         </section>
 
         <section id='work' className='content-section'>
           <SectionLabel number='03'>Selected work</SectionLabel>
           <div className='section-content'>
-            <div className='section-heading'>
+            <Reveal className='section-heading'>
               <h2>Selected projects</h2>
               <p>
                 Real digital products built for businesses and users across
                 multiple industries.
               </p>
-            </div>
-            <div className='project-list'>
+            </Reveal>
+            <motion.div
+              className='project-list'
+              initial={reduceMotion ? false : 'hidden'}
+              whileInView='visible'
+              viewport={{ once: true, amount: 0.06 }}
+              variants={reduceMotion ? noMotion : stagger}
+            >
               {projects.map((project, index) => (
-                <a
+                <motion.a
                   className='project-row'
                   href={project.link}
                   target='_blank'
                   rel='noreferrer'
                   key={project.name}
+                  variants={reduceMotion ? noMotion : rowReveal}
                 >
                   <span className='project-number'>{String(index + 1).padStart(2, '0')}</span>
                   <div className='project-main'>
@@ -386,46 +531,72 @@ export default function HomePage() {
                     {project.stack.map((item) => <span key={item}>{item}</span>)}
                   </div>
                   <ArrowUpRight className='project-arrow' size={23} />
-                </a>
+                </motion.a>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         <section id='toolkit' className='content-section toolkit-section'>
           <SectionLabel number='02'>Toolkit</SectionLabel>
           <div className='section-content'>
-            <div className='toolkit-details'>
+            <motion.div
+              className='toolkit-details'
+              initial={reduceMotion ? false : 'hidden'}
+              whileInView='visible'
+              viewport={revealViewport}
+              variants={reduceMotion ? noMotion : stagger}
+            >
               <div className='hard-skills'>
-                <h3>Hard skills</h3>
-                <div className='skill-meters'>
+                <motion.h3 variants={reduceMotion ? noMotion : fadeUp}>Hard skills</motion.h3>
+                <motion.div className='skill-meters' variants={reduceMotion ? noMotion : stagger}>
                   {hardSkills.map(([name, value]) => (
-                    <div className='skill-meter' key={name}>
+                    <motion.div
+                      className='skill-meter'
+                      key={name}
+                      variants={reduceMotion ? noMotion : rowReveal}
+                    >
                       <span>{name}</span>
                       <div aria-hidden='true'>
-                        <i style={{ width: `${value}%` }} />
+                        <motion.i
+                          initial={reduceMotion ? false : { width: 0 }}
+                          whileInView={{ width: `${value}%` }}
+                          viewport={{ once: true, amount: 0.8 }}
+                          transition={{ duration: 0.9, ease: easeOut }}
+                        />
                       </div>
                       <strong>{value}</strong>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </div>
 
               <div className='people-skills'>
-                <div>
+                <motion.div variants={reduceMotion ? noMotion : fadeUp}>
                   <h3>Soft skills</h3>
-                  <div className='skill-pills'>
-                    {softSkills.map((skill) => <span key={skill}>{skill}</span>)}
-                  </div>
-                </div>
-                <div className='learning-block'>
+                  <motion.div className='skill-pills' variants={reduceMotion ? noMotion : stagger}>
+                    {softSkills.map((skill) => (
+                      <motion.span key={skill} variants={reduceMotion ? noMotion : popIn}>
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+                </motion.div>
+                <motion.div className='learning-block' variants={reduceMotion ? noMotion : fadeUp}>
                   <h3>Currently learning</h3>
-                  <div className='skill-pills learning-pills'>
-                    {learningNow.map((skill) => <span key={skill}>{skill}</span>)}
-                  </div>
-                </div>
+                  <motion.div
+                    className='skill-pills learning-pills'
+                    variants={reduceMotion ? noMotion : stagger}
+                  >
+                    {learningNow.map((skill) => (
+                      <motion.span key={skill} variants={reduceMotion ? noMotion : popIn}>
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -434,8 +605,18 @@ export default function HomePage() {
           <div className='section-content'>
             <div className='experience-list'>
               {experience.map((item) => (
-                <article className='experience-item' key={`${item.company}-${item.period}`}>
-                  <span className={`timeline-dot${item.current ? ' is-current' : ''}`} />
+                <motion.article
+                  className='experience-item'
+                  key={`${item.company}-${item.period}`}
+                  initial={reduceMotion ? false : 'hidden'}
+                  whileInView='visible'
+                  viewport={revealViewport}
+                  variants={reduceMotion ? noMotion : rowReveal}
+                >
+                  <motion.span
+                    className={`timeline-dot${item.current ? ' is-current' : ''}`}
+                    variants={reduceMotion ? noMotion : popIn}
+                  />
                   <time>{item.period}</time>
                   <div>
                     <h3>
@@ -443,7 +624,7 @@ export default function HomePage() {
                     </h3>
                     <p>{item.description}</p>
                   </div>
-                </article>
+                </motion.article>
               ))}
             </div>
           </div>
@@ -454,8 +635,18 @@ export default function HomePage() {
           <div className='section-content'>
             <div className='experience-list'>
               {education.map((item) => (
-                <article className='experience-item' key={item.school}>
-                  <span className='timeline-dot' />
+                <motion.article
+                  className='experience-item'
+                  key={item.school}
+                  initial={reduceMotion ? false : 'hidden'}
+                  whileInView='visible'
+                  viewport={revealViewport}
+                  variants={reduceMotion ? noMotion : rowReveal}
+                >
+                  <motion.span
+                    className='timeline-dot'
+                    variants={reduceMotion ? noMotion : popIn}
+                  />
                   <time>{item.period}</time>
                   <div>
                     <h3>
@@ -463,7 +654,7 @@ export default function HomePage() {
                     </h3>
                     <p>{item.description}</p>
                   </div>
-                </article>
+                </motion.article>
               ))}
             </div>
           </div>
@@ -472,48 +663,80 @@ export default function HomePage() {
         <section id='interests' className='content-section interests-section'>
           <SectionLabel number='06'>Interests & activities</SectionLabel>
           <div className='section-content'>
-            <div className='interests-grid'>
+            <motion.div
+              className='interests-grid'
+              initial={reduceMotion ? false : 'hidden'}
+              whileInView='visible'
+              viewport={revealViewport}
+              variants={reduceMotion ? noMotion : stagger}
+            >
               {interests.map(([name, role, detail], index) => (
-                <article className='interest-card' key={name}>
+                <motion.article
+                  className='interest-card'
+                  key={name}
+                  variants={reduceMotion ? noMotion : fadeUp}
+                >
                   <span className='interest-index'>0{index + 1}</span>
                   <h3>{name}</h3>
                   <p>{role}</p>
                   <small>{detail}</small>
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         <section id='contact' className='contact-section'>
           <SectionLabel number='07'>Contact</SectionLabel>
-          <div className='contact-content'>
-            <p>Have a project, a collaboration, or simply a good idea in mind?</p>
-            <h2>
+          <motion.div
+            className='contact-content'
+            initial={reduceMotion ? false : 'hidden'}
+            whileInView='visible'
+            viewport={revealViewport}
+            variants={reduceMotion ? noMotion : stagger}
+          >
+            <motion.p variants={reduceMotion ? noMotion : fadeUp}>
+              Have a project, a collaboration, or simply a good idea in mind?
+            </motion.p>
+            <motion.h2 variants={reduceMotion ? noMotion : fadeUp}>
               Let’s build
               <br />
               <a href='https://t.me/akobirjs' target='_blank' rel='noreferrer'>
                 something great.<ArrowUpRight />
               </a>
-            </h2>
-            <div className='social-grid'>
+            </motion.h2>
+            <motion.div className='social-grid' variants={reduceMotion ? noMotion : stagger}>
               {socials.map(({ label, value, href, icon: Icon }) => (
-                <a href={href} target='_blank' rel='noreferrer' key={label}>
+                <motion.a
+                  href={href}
+                  target='_blank'
+                  rel='noreferrer'
+                  key={label}
+                  variants={reduceMotion ? noMotion : fadeUp}
+                  whileHover={reduceMotion ? undefined : { y: -3 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Icon size={18} />
                   <span><small>{label}</small>{value}</span>
                   <ArrowUpRight size={17} />
-                </a>
+                </motion.a>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
       </main>
 
-      <footer className='site-footer'>
+      <motion.footer
+        className='site-footer'
+        initial={reduceMotion ? false : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.8 }}
+        transition={{ duration: 0.6 }}
+      >
         <p>© {new Date().getFullYear()} Akobir Ziyodullayev</p>
         <p>Built with React, TypeScript & attention to detail.</p>
         <a href='#top'>Back to top ↑</a>
-      </footer>
+      </motion.footer>
     </div>
   );
 }

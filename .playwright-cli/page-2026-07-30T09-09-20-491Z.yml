@@ -1,0 +1,321 @@
+- generic [ref=f1e3]:
+  - complementary:
+    - generic: 00%
+    - generic: Scroll
+  - banner [ref=f1e4]:
+    - link "Home" [ref=f1e5] [cursor=pointer]:
+      - /url: "#top"
+      - text: akobir.dev
+    - navigation "Primary navigation" [ref=f1e6]:
+      - link "01 About" [ref=f1e7] [cursor=pointer]:
+        - /url: "#about"
+      - link "02 Toolkit" [ref=f1e8] [cursor=pointer]:
+        - /url: "#toolkit"
+      - link "03 Work" [ref=f1e9] [cursor=pointer]:
+        - /url: "#work"
+      - link "04 Experience" [ref=f1e10] [cursor=pointer]:
+        - /url: "#experience"
+      - link "05 Education" [ref=f1e11] [cursor=pointer]:
+        - /url: "#education"
+      - link "06 Interests" [ref=f1e12] [cursor=pointer]:
+        - /url: "#interests"
+      - link "07 Contact" [ref=f1e13] [cursor=pointer]:
+        - /url: "#contact"
+    - link "Let’s talk" [ref=f1e14] [cursor=pointer]:
+      - /url: https://t.me/akobirjs
+  - main [ref=f1e19]:
+    - generic [ref=f1e20]:
+      - generic [ref=f1e21]: Open to new opportunities
+      - heading [level=1] [ref=f1e23]:
+        - text: Frontend developerbuilding
+        - emphasis [ref=f1e24]: fast, thoughtful
+        - text: digital products.
+      - generic [ref=f1e25]:
+        - paragraph [ref=f1e26]:
+          - text: I’m
+          - strong [ref=f1e27]: Akobir Ziyodullayev
+          - text: — a frontend developer based in Tashkent. I turn ideas into fast, responsive, and enjoyable digital products.
+        - generic [ref=f1e28]:
+          - link "View projects" [ref=f1e29] [cursor=pointer]:
+            - /url: "#work"
+          - button "Download CV" [ref=f1e33] [cursor=pointer]
+      - generic [ref=f1e38]:
+        - generic [ref=f1e39]: Tashkent, Uzbekistan
+        - generic [ref=f1e43]: GMT +5
+        - generic [ref=f1e44]: Web & mobile development
+    - generic [ref=f1e45]: React ✦ Next.js ✦ TypeScript ✦React Native ✦ Tailwind CSS ✦ Redux✦ Figma ✦ Git ✦React ✦ Next.js ✦ TypeScript ✦React Native ✦
+    - generic [ref=f1e47]:
+      - generic [ref=f1e48]:
+        - generic [ref=f1e49]: (01)
+        - generic [ref=f1e50]: About
+      - generic [ref=f1e52]:
+        - paragraph [ref=f1e53]:
+          - text: I build digital products where business goals, user needs, and
+          - emphasis [ref=f1e54]: thoughtful details
+          - text: work together as one clear experience.
+        - generic [ref=f1e55]:
+          - paragraph [ref=f1e56]: My core stack is React, Next.js, and TypeScript. I translate product ideas and designs into clean, maintainable interfaces, connect them to real APIs, and make sure the experience stays consistent across every screen size.
+          - paragraph [ref=f1e57]: I have delivered products across logistics, education, automotive, e-commerce, and corporate sectors. Alongside development, I mentor future frontend engineers at Mars IT, which has strengthened how I communicate, collaborate, and explain complex technical ideas.
+        - generic [ref=f1e58]:
+          - generic [ref=f1e59]:
+            - term [ref=f1e60]: Projects
+            - definition [ref=f1e61]: 10+
+          - generic [ref=f1e62]:
+            - term [ref=f1e63]: Featured
+            - definition [ref=f1e64]: "08"
+          - generic [ref=f1e65]:
+            - term [ref=f1e66]: Based
+            - definition [ref=f1e67]: Tashkent
+    - generic [ref=f1e68]:
+      - generic [ref=f1e69]:
+        - generic [ref=f1e70]: (03)
+        - generic [ref=f1e71]: Selected work
+      - generic [ref=f1e72]:
+        - generic [ref=f1e73]:
+          - heading "Selected projects" [level=2] [ref=f1e74]
+          - paragraph [ref=f1e75]: Real digital products built for businesses and users across multiple industries.
+        - generic [ref=f1e76]:
+          - link "01 Logistics SaaS TMS Pro A complete transportation management platform for trucking companies to manage fleets, drivers, settlements, and finances. React.js Supabase" [ref=f1e77] [cursor=pointer]:
+            - /url: https://tmspro.info/
+            - generic [ref=f1e78]: "01"
+            - generic [ref=f1e79]:
+              - generic [ref=f1e80]:
+                - generic [ref=f1e81]: Logistics SaaS
+                - heading "TMS Pro" [level=3] [ref=f1e82]
+              - paragraph [ref=f1e83]: A complete transportation management platform for trucking companies to manage fleets, drivers, settlements, and finances.
+            - generic [ref=f1e84]:
+              - generic [ref=f1e85]: React.js
+              - generic [ref=f1e86]: Supabase
+          - link "02 EdTech Mock4IELTS A modern online platform that helps students prepare for IELTS and evaluate their progress through realistic practice. Next.js TypeScript FastAPI Tailwind" [ref=f1e90] [cursor=pointer]:
+            - /url: https://mock4ielts.uz/
+            - generic [ref=f1e91]: "02"
+            - generic [ref=f1e92]:
+              - generic [ref=f1e93]:
+                - generic [ref=f1e94]: EdTech
+                - heading "Mock4IELTS" [level=3] [ref=f1e95]
+              - paragraph [ref=f1e96]: A modern online platform that helps students prepare for IELTS and evaluate their progress through realistic practice.
+            - generic [ref=f1e97]:
+              - generic [ref=f1e98]: Next.js
+              - generic [ref=f1e99]: TypeScript
+              - generic [ref=f1e100]: FastAPI
+              - generic [ref=f1e101]: Tailwind
+          - link "03 FoodTech Lunch Drop A streamlined food-ordering experience designed to make discovering and ordering meals quick and intuitive. Next.js TypeScript FastAPI MUI" [ref=f1e105] [cursor=pointer]:
+            - /url: https://lunchdrop.uz/
+            - generic [ref=f1e106]: "03"
+            - generic [ref=f1e107]:
+              - generic [ref=f1e108]:
+                - generic [ref=f1e109]: FoodTech
+                - heading "Lunch Drop" [level=3] [ref=f1e110]
+              - paragraph [ref=f1e111]: A streamlined food-ordering experience designed to make discovering and ordering meals quick and intuitive.
+            - generic [ref=f1e112]:
+              - generic [ref=f1e113]: Next.js
+              - generic [ref=f1e114]: TypeScript
+              - generic [ref=f1e115]: FastAPI
+              - generic [ref=f1e116]: MUI
+          - link "04 Education Urokids A responsive digital learning experience created to make education more engaging and accessible for children. React TypeScript Supabase Tailwind" [ref=f1e120] [cursor=pointer]:
+            - /url: https://www.urokids.uz/ru
+            - generic [ref=f1e121]: "04"
+            - generic [ref=f1e122]:
+              - generic [ref=f1e123]:
+                - generic [ref=f1e124]: Education
+                - heading "Urokids" [level=3] [ref=f1e125]
+              - paragraph [ref=f1e126]: A responsive digital learning experience created to make education more engaging and accessible for children.
+            - generic [ref=f1e127]:
+              - generic [ref=f1e128]: React
+              - generic [ref=f1e129]: TypeScript
+              - generic [ref=f1e130]: Supabase
+              - generic [ref=f1e131]: Tailwind
+          - link "05 Education Emirates Academy A fast corporate website that presents the academy’s courses, services, and learning opportunities clearly. Next.js TypeScript Tailwind" [ref=f1e135] [cursor=pointer]:
+            - /url: https://emiratesacademy.uz/
+            - generic [ref=f1e136]: "05"
+            - generic [ref=f1e137]:
+              - generic [ref=f1e138]:
+                - generic [ref=f1e139]: Education
+                - heading "Emirates Academy" [level=3] [ref=f1e140]
+              - paragraph [ref=f1e141]: A fast corporate website that presents the academy’s courses, services, and learning opportunities clearly.
+            - generic [ref=f1e142]:
+              - generic [ref=f1e143]: Next.js
+              - generic [ref=f1e144]: TypeScript
+              - generic [ref=f1e145]: Tailwind
+          - link "06 Automotive MyMotors Nurafshon An official automotive website combining a vehicle catalogue, dealership information, and customer enquiries. Next.js Tailwind" [ref=f1e149] [cursor=pointer]:
+            - /url: https://www.mymotorsnurafshon.uz/
+            - generic [ref=f1e150]: "06"
+            - generic [ref=f1e151]:
+              - generic [ref=f1e152]:
+                - generic [ref=f1e153]: Automotive
+                - heading "MyMotors Nurafshon" [level=3] [ref=f1e154]
+              - paragraph [ref=f1e155]: An official automotive website combining a vehicle catalogue, dealership information, and customer enquiries.
+            - generic [ref=f1e156]:
+              - generic [ref=f1e157]: Next.js
+              - generic [ref=f1e158]: Tailwind
+          - link "07 E-commerce 1good A modern brand and commerce experience designed to make product discovery simple and visually engaging. React TypeScript Tailwind" [ref=f1e162] [cursor=pointer]:
+            - /url: https://www.1good.uz/
+            - generic [ref=f1e163]: "07"
+            - generic [ref=f1e164]:
+              - generic [ref=f1e165]:
+                - generic [ref=f1e166]: E-commerce
+                - heading "1good" [level=3] [ref=f1e167]
+              - paragraph [ref=f1e168]: A modern brand and commerce experience designed to make product discovery simple and visually engaging.
+            - generic [ref=f1e169]:
+              - generic [ref=f1e170]: React
+              - generic [ref=f1e171]: TypeScript
+              - generic [ref=f1e172]: Tailwind
+          - link "08 Corporate Bulut Paper A corporate website showcasing the manufacturer’s products, capabilities, and business information. React TypeScript Tailwind" [ref=f1e176] [cursor=pointer]:
+            - /url: https://www.bulutpaper.uz/
+            - generic [ref=f1e177]: "08"
+            - generic [ref=f1e178]:
+              - generic [ref=f1e179]:
+                - generic [ref=f1e180]: Corporate
+                - heading "Bulut Paper" [level=3] [ref=f1e181]
+              - paragraph [ref=f1e182]: A corporate website showcasing the manufacturer’s products, capabilities, and business information.
+            - generic [ref=f1e183]:
+              - generic [ref=f1e184]: React
+              - generic [ref=f1e185]: TypeScript
+              - generic [ref=f1e186]: Tailwind
+    - generic [ref=f1e190]:
+      - generic [ref=f1e191]:
+        - generic [ref=f1e192]: (02)
+        - generic [ref=f1e193]: Toolkit
+      - generic [ref=f1e195]:
+        - generic [ref=f1e196]:
+          - heading "Hard skills" [level=3] [ref=f1e197]
+          - generic [ref=f1e198]:
+            - generic [ref=f1e199]:
+              - generic [ref=f1e200]: React / Next.js
+              - strong [ref=f1e202]: "93"
+            - generic [ref=f1e203]:
+              - generic [ref=f1e204]: TypeScript / JavaScript
+              - strong [ref=f1e206]: "90"
+            - generic [ref=f1e207]:
+              - generic [ref=f1e208]: React Native
+              - strong [ref=f1e210]: "85"
+            - generic [ref=f1e211]:
+              - generic [ref=f1e212]: HTML / CSS / Tailwind
+              - strong [ref=f1e214]: "92"
+            - generic [ref=f1e215]:
+              - generic [ref=f1e216]: Redux / Zustand
+              - strong [ref=f1e218]: "85"
+            - generic [ref=f1e219]:
+              - generic [ref=f1e220]: REST API / Integration
+              - strong [ref=f1e222]: "83"
+            - generic [ref=f1e223]:
+              - generic [ref=f1e224]: Figma / design handoff
+              - strong [ref=f1e226]: "80"
+        - generic [ref=f1e227]:
+          - generic [ref=f1e228]:
+            - heading "Soft skills" [level=3] [ref=f1e229]
+            - generic [ref=f1e230]:
+              - generic [ref=f1e231]: Problem solving
+              - generic [ref=f1e232]: Explaining complex things simply
+              - generic [ref=f1e233]: Attention to detail
+              - generic [ref=f1e234]: Team collaboration
+              - generic [ref=f1e235]: Adaptability
+              - generic [ref=f1e236]: Problem framing
+              - generic [ref=f1e237]: Consistency
+              - generic [ref=f1e238]: Knowing when to ask
+          - generic [ref=f1e239]:
+            - heading "Currently learning" [level=3] [ref=f1e240]
+            - generic [ref=f1e241]:
+              - generic [ref=f1e242]: Advanced React Patterns
+              - generic [ref=f1e243]: DevOps
+              - generic [ref=f1e244]: System Design
+              - generic [ref=f1e245]: Node.js
+    - generic [ref=f1e246]:
+      - generic [ref=f1e247]:
+        - generic [ref=f1e248]: (04)
+        - generic [ref=f1e249]: Experience
+      - generic [ref=f1e251]:
+        - article [ref=f1e252]:
+          - time [ref=f1e254]: 2023 — Present
+          - generic [ref=f1e255]:
+            - heading "Frontend Mentor @ Mars IT" [level=3] [ref=f1e256]:
+              - text: Frontend Mentor
+              - generic [ref=f1e257]: "@ Mars IT"
+            - paragraph [ref=f1e258]: Teaching HTML, CSS, JavaScript, and React through structured lessons and practical projects, helping students build strong frontend fundamentals and independent problem-solving skills.
+        - article [ref=f1e259]:
+          - time [ref=f1e261]: 2024 — 2025
+          - generic [ref=f1e262]:
+            - heading "Frontend Developer @ XXB LLC" [level=3] [ref=f1e263]:
+              - text: Frontend Developer
+              - generic [ref=f1e264]: "@ XXB LLC"
+            - paragraph [ref=f1e265]: Built modern, responsive interfaces with React and translated product requirements into reliable web features with a focus on maintainability and user experience.
+    - generic [ref=f1e266]:
+      - generic [ref=f1e267]:
+        - generic [ref=f1e268]: (05)
+        - generic [ref=f1e269]: Education
+      - generic [ref=f1e271]:
+        - article [ref=f1e272]:
+          - time [ref=f1e274]: 2022 — 2023
+          - generic [ref=f1e275]:
+            - heading "Frontend Development @ Webbrain Academy" [level=3] [ref=f1e276]:
+              - text: Frontend Development
+              - generic [ref=f1e277]: "@ Webbrain Academy"
+            - paragraph [ref=f1e278]: Advanced my practical frontend skills through project-based learning focused on JavaScript, React, modern UI development, and real-world application workflows.
+        - article [ref=f1e279]:
+          - time [ref=f1e281]: 2021 — 2022
+          - generic [ref=f1e282]:
+            - heading "Frontend Development @ Albison Academy" [level=3] [ref=f1e283]:
+              - text: Frontend Development
+              - generic [ref=f1e284]: "@ Albison Academy"
+            - paragraph [ref=f1e285]: Built a strong foundation in HTML, CSS, JavaScript, responsive design, and the core principles of modern web development.
+    - generic [ref=f1e286]:
+      - generic [ref=f1e287]:
+        - generic [ref=f1e288]: (06)
+        - generic [ref=f1e289]: Interests & activities
+      - generic [ref=f1e291]:
+        - article [ref=f1e292]:
+          - generic [ref=f1e293]: "01"
+          - heading "Table Tennis" [level=3] [ref=f1e294]
+          - paragraph [ref=f1e295]: Player
+          - generic [ref=f1e296]: Favourite sport
+        - article [ref=f1e297]:
+          - generic [ref=f1e298]: "02"
+          - heading "Chess" [level=3] [ref=f1e299]
+          - paragraph [ref=f1e300]: Player
+          - generic [ref=f1e301]: Strategy & focus
+        - article [ref=f1e302]:
+          - generic [ref=f1e303]: "03"
+          - heading "CS2" [level=3] [ref=f1e304]
+          - paragraph [ref=f1e305]: Player
+          - generic [ref=f1e306]: Team-based competition
+        - article [ref=f1e307]:
+          - generic [ref=f1e308]: "04"
+          - heading "Football" [level=3] [ref=f1e309]
+          - paragraph [ref=f1e310]: Player
+          - generic [ref=f1e311]: Sport & teamwork
+    - generic [ref=f1e312]:
+      - generic [ref=f1e313]:
+        - generic [ref=f1e314]: (07)
+        - generic [ref=f1e315]: Contact
+      - generic [ref=f1e316]:
+        - paragraph [ref=f1e317]: Have a project, a collaboration, or simply a good idea in mind?
+        - heading [level=2] [ref=f1e318]:
+          - text: Let’s build
+          - link "something great." [ref=f1e319] [cursor=pointer]:
+            - /url: https://t.me/akobirjs
+        - generic [ref=f1e323]:
+          - link "GitHub Ziiyodullayevv" [ref=f1e324] [cursor=pointer]:
+            - /url: https://github.com/Ziiyodullayevv
+            - generic [ref=f1e328]:
+              - generic [ref=f1e329]: GitHub
+              - text: Ziiyodullayevv
+          - link "LinkedIn Akobir Ziyodullayev" [ref=f1e333] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/akobir-ziyodullayev-9a26a2281/
+            - generic [ref=f1e338]:
+              - generic [ref=f1e339]: LinkedIn
+              - text: Akobir Ziyodullayev
+          - link "Telegram @akobirjs" [ref=f1e343] [cursor=pointer]:
+            - /url: https://t.me/akobirjs
+            - generic [ref=f1e347]:
+              - generic [ref=f1e348]: Telegram
+              - text: "@akobirjs"
+          - link "Instagram @ziiyodullayevv" [ref=f1e352] [cursor=pointer]:
+            - /url: https://www.instagram.com/ziiyodullayevv/
+            - generic [ref=f1e356]:
+              - generic [ref=f1e357]: Instagram
+              - text: "@ziiyodullayevv"
+  - contentinfo [ref=f1e361]:
+    - paragraph [ref=f1e362]: © 2026 Akobir Ziyodullayev
+    - paragraph [ref=f1e363]: Built with React, TypeScript & attention to detail.
+    - link "Back to top ↑" [ref=f1e364] [cursor=pointer]:
+      - /url: "#top"
