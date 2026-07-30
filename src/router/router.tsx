@@ -1,7 +1,6 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Navigate } from 'react-router';
 import RootLayout from '../layouts/RootLayout';
 import HomePage from '../pages/HomePage';
-import ShowcasePage from '../pages/ShowcasePage';
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +8,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: 'showcase', element: <ShowcasePage /> },
+      { path: '*', element: <Navigate to='/' replace /> },
     ],
   },
 ]);
