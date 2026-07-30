@@ -309,7 +309,7 @@ export default function HomePage() {
     setCvDownloadFailed(false);
 
     try {
-      const response = await fetch('/my-cv.pdf');
+      const response = await fetch('/Akobir-Ziyodullayev-CV.pdf');
       if (!response.ok) throw new Error('CV download failed');
 
       const blob = await response.blob();

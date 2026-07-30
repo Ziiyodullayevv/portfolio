@@ -60,7 +60,7 @@ export default function Hero() {
 
           <SplitBox delay={0.4} y={10} duration={1} animateOnMount>
             <a
-              href='/my-cv.pdf'
+              href='/Akobir-Ziyodullayev-CV.pdf'
               download
               className='h-[35px] flex items-center cursor-pointer bg-blue-600 px-3 rounded-[8px]'
             >

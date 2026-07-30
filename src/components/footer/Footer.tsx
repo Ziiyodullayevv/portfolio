@@ -75,7 +75,7 @@ export default function Footer() {
                   <Link to='/showcase'>Showcase</Link>
                 </li>
                 <li className='opacity-60 hover:opacity-100'>
-                  <a href='/my-cv.pdf' download>
+                  <a href='/Akobir-Ziyodullayev-CV.pdf' download>
                     Download CV
                   </a>
                 </li>
